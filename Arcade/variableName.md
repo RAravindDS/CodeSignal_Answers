@@ -21,11 +21,10 @@ solution(name) = false.
 ##
 ### Answer 
 ```python 
-import re 
+
 
 def solution(name):
-    expression = r"^[a-zA-Z_][a-zA-Z0-9_]*"
-    return len(name) == len("".join(re.findall(expression, name)))
+    return name.isidentifier()
 ```
 
 
