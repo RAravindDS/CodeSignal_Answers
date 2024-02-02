@@ -1,0 +1,83 @@
+{
+  "paths": [
+    {
+      "type": "file",
+      "value": "Array Replace.md"
+    },
+    {
+      "type": "file",
+      "value": "Box Blur.md"
+    },
+    {
+      "type": "file",
+      "value": "Minesweeper.md"
+    },
+    {
+      "type": "file",
+      "value": "alphabeticShift.md"
+    },
+    {
+      "type": "file",
+      "value": "chessBoardCellColor.md"
+    },
+    {
+      "type": "file",
+      "value": "evenDigitsOnly.md"
+    },
+    {
+      "type": "file",
+      "value": "variableName.md"
+    }
+  ],
+  "contents": [
+    {
+      "path": "Array Replace.md",
+      "url": "Array Replace.html",
+      "content": "\n### Question \nGiven an array of integers, replace all the occurrences of elemToReplace with substitutionElem.\n\nExample\n\nFor inputArray = `[1, 2, 1]`, elemToReplace = 1, and substitutionElem = 3, the output should be\nsolution(inputArray, elemToReplace, substitutionElem) = `[3, 2, 3]`.\n##\n\n### Answer\n```python\ndef solution(a, elemToReplace, substitutionElem):\n    \n    return [ i if i != elemToReplace else substitutionElem for i in a]\n\n```\n\n##\n\n**give a star✨**\n",
+      "html": "<h3 id=\"question\">Question <a class=\"heading-anchor-permalink\" href=\"#question\">#</a></h3>\n<p>Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.</p>\n<p>Example</p>\n<p>For inputArray = <code>[1, 2, 1]</code>, elemToReplace = 1, and substitutionElem = 3, the output should be\nsolution(inputArray, elemToReplace, substitutionElem) = <code>[3, 2, 3]</code>.</p>\n<h2 id=\"\"> <a class=\"heading-anchor-permalink\" href=\"#\">#</a></h2>\n<h3 id=\"answer\">Answer <a class=\"heading-anchor-permalink\" href=\"#answer\">#</a></h3>\n<pre><code class=\"language-python\">def solution(a, elemToReplace, substitutionElem):\n    \n    return [ i if i != elemToReplace else substitutionElem for i in a]\n\n</code></pre>\n<h2 id=\"-2\"> <a class=\"heading-anchor-permalink\" href=\"#-2\">#</a></h2>\n<p><strong>give a star✨</strong></p>\n",
+      "id": 0
+    },
+    {
+      "path": "Box Blur.md",
+      "url": "Box Blur.html",
+      "content": "\n## Question \nLast night you partied a little too hard. Now there's a black and white photo of you that's about to go viral! You can't let this ruin your reputation, so you want to apply the box blur algorithm to the photo to hide its content.\n\nThe pixels in the input image are represented as integers. The algorithm distorts the input image in the following way: Every pixel x in the output image has a value equal to the average value of the pixel values from the 3 × 3 square that has its center at x, including x itself. All the pixels on the border of x are then removed.\nReturn the blurred image as an integer, with the fractions rounded down.\n\nExample\n\nFor\n```python \nimage = [[1, 1, 1], \n         [1, 7, 1], \n         [1, 1, 1]]\n```\nthe output should be solution(image) = [[1]].\n\n## Answer: \n\n```python\nimport numpy as np \n\n\ndef solution(a): \n\n  bro = np.array(a)\n\n  brs = []\n  count = 0\n  outer_count = 0\n  second_loop = 0\n\n  for i in range(len(a)-2):\n    intermediate_list = []\n\n    for bros in range(len(a[0])-2): \n      intermediate_list.append(int(bro[outer_count:3+second_loop, count:3+count].mean()))\n      count += 1\n    \n    brs.append(intermediate_list)\n    second_loop += 1 \n    outer_count += 1\n    count = 0 \n\n  return brs\n```\n\n**Give a star ✨**\n",
+      "html": "<h2 id=\"question\">Question <a class=\"heading-anchor-permalink\" href=\"#question\">#</a></h2>\n<p>Last night you partied a little too hard. Now there’s a black and white photo of you that’s about to go viral! You can’t let this ruin your reputation, so you want to apply the box blur algorithm to the photo to hide its content.</p>\n<p>The pixels in the input image are represented as integers. The algorithm distorts the input image in the following way: Every pixel x in the output image has a value equal to the average value of the pixel values from the 3 × 3 square that has its center at x, including x itself. All the pixels on the border of x are then removed.\nReturn the blurred image as an integer, with the fractions rounded down.</p>\n<p>Example</p>\n<p>For</p>\n<pre><code class=\"language-python\">image = [[1, 1, 1], \n         [1, 7, 1], \n         [1, 1, 1]]\n</code></pre>\n<p>the output should be solution(image) = [[1]].</p>\n<h2 id=\"answer%3A\">Answer: <a class=\"heading-anchor-permalink\" href=\"#answer%3A\">#</a></h2>\n<pre><code class=\"language-python\">import numpy as np \n\n\ndef solution(a): \n\n  bro = np.array(a)\n\n  brs = []\n  count = 0\n  outer_count = 0\n  second_loop = 0\n\n  for i in range(len(a)-2):\n    intermediate_list = []\n\n    for bros in range(len(a[0])-2): \n      intermediate_list.append(int(bro[outer_count:3+second_loop, count:3+count].mean()))\n      count += 1\n    \n    brs.append(intermediate_list)\n    second_loop += 1 \n    outer_count += 1\n    count = 0 \n\n  return brs\n</code></pre>\n<p><strong>Give a star ✨</strong></p>\n",
+      "id": 1
+    },
+    {
+      "path": "Minesweeper.md",
+      "url": "Minesweeper.html",
+      "content": "## Question \n\nIn the popular Minesweeper game you have a board with some mines and those cells that don't contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.\n\nExample\n\nFor\n```\nmatrix = [[true, false, false],\n          [false, true, false],\n          [false, false, false]]\n```\n\n## answer \n\n```python\ndef checking_index(vector_len, index_inside): \n\n  if index_inside == 0: \n    return list(range(index_inside, index_inside+2))\n\n  elif index_inside == vector_len: \n    return list(range(index_inside-1, index_inside+1))\n\n  else: \n    return list(range(index_inside-1, index_inside+2))\n    \n\n\ndef solution(c): \n\n  c = [ list(map(int,i)) for i in c]\n  length = len(c) - 1\n\n  pura_list = []\n\n  for index, vector in enumerate(c):\n    temp_list = []\n    index_inside = index\n\n    for index_inside, element in enumerate(vector): \n      if index == 0:\n        out = list(range(index, index+2)) \n        broo = checking_index(len(vector), index_inside)\n\n        super_list = []\n        for no_bro in out: \n          super_list.append(sum(c[no_bro][broo[0]:broo[-1]+1]))\n\n        sum_of_super_list = sum(super_list) if vector[index_inside] == 0 else sum(super_list) - 1 \n        temp_list.append(sum_of_super_list)\n        \n\n\n      elif index == length:\n        out = list(range(index-1, index+1))\n        broo = checking_index(len(vector), index_inside)\n\n        super_list = []\n        for no_bro in out: \n          super_list.append(sum(c[no_bro][broo[0]:broo[-1]+1]))\n          \n        sum_of_super_list = sum(super_list) if vector[index_inside] == 0 else sum(super_list) - 1 \n        temp_list.append(sum_of_super_list)\n\n      else:\n        out = list(range(index-1, index+2))\n        broo = checking_index(len(vector), index_inside)\n\n        super_list = []\n        for no_bro in out: \n          super_list.append(sum(c[no_bro][broo[0]:broo[-1]+1]))\n          \n\n        sum_of_super_list = sum(super_list) if vector[index_inside] == 0 else sum(super_list) - 1 \n        temp_list.append(sum_of_super_list)\n\n    pura_list.append(temp_list)\n\n  return pura_list\n\n\n```\n\n\n**give a star ✨** \n",
+      "html": "<h2 id=\"question\">Question <a class=\"heading-anchor-permalink\" href=\"#question\">#</a></h2>\n<p>In the popular Minesweeper game you have a board with some mines and those cells that don’t contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.</p>\n<p>Example</p>\n<p>For</p>\n<pre><code>matrix = [[true, false, false],\n          [false, true, false],\n          [false, false, false]]\n</code></pre>\n<h2 id=\"answer\">answer <a class=\"heading-anchor-permalink\" href=\"#answer\">#</a></h2>\n<pre><code class=\"language-python\">def checking_index(vector_len, index_inside): \n\n  if index_inside == 0: \n    return list(range(index_inside, index_inside+2))\n\n  elif index_inside == vector_len: \n    return list(range(index_inside-1, index_inside+1))\n\n  else: \n    return list(range(index_inside-1, index_inside+2))\n    \n\n\ndef solution(c): \n\n  c = [ list(map(int,i)) for i in c]\n  length = len(c) - 1\n\n  pura_list = []\n\n  for index, vector in enumerate(c):\n    temp_list = []\n    index_inside = index\n\n    for index_inside, element in enumerate(vector): \n      if index == 0:\n        out = list(range(index, index+2)) \n        broo = checking_index(len(vector), index_inside)\n\n        super_list = []\n        for no_bro in out: \n          super_list.append(sum(c[no_bro][broo[0]:broo[-1]+1]))\n\n        sum_of_super_list = sum(super_list) if vector[index_inside] == 0 else sum(super_list) - 1 \n        temp_list.append(sum_of_super_list)\n        \n\n\n      elif index == length:\n        out = list(range(index-1, index+1))\n        broo = checking_index(len(vector), index_inside)\n\n        super_list = []\n        for no_bro in out: \n          super_list.append(sum(c[no_bro][broo[0]:broo[-1]+1]))\n          \n        sum_of_super_list = sum(super_list) if vector[index_inside] == 0 else sum(super_list) - 1 \n        temp_list.append(sum_of_super_list)\n\n      else:\n        out = list(range(index-1, index+2))\n        broo = checking_index(len(vector), index_inside)\n\n        super_list = []\n        for no_bro in out: \n          super_list.append(sum(c[no_bro][broo[0]:broo[-1]+1]))\n          \n\n        sum_of_super_list = sum(super_list) if vector[index_inside] == 0 else sum(super_list) - 1 \n        temp_list.append(sum_of_super_list)\n\n    pura_list.append(temp_list)\n\n  return pura_list\n\n\n</code></pre>\n<p><strong>give a star ✨</strong></p>\n",
+      "id": 2
+    },
+    {
+      "path": "alphabeticShift.md",
+      "url": "alphabeticShift.html",
+      "content": "\n### Question \n\nGiven a string, your task is to replace each of its characters by the next one in the English alphabet; i.e. replace a with b, replace b with c, etc (z would be replaced by a).\n\n\nFor inputString = `\"crazy\"`, the output should be solution(inputString) = `\"dsbaz\"`.\n\n### Answer \n```python\ndef solution(inputString):\n    return \"\".join([chr(ord(i)+1) if i != \"z\" else chr(ord(i)-25) for i in list(inputString)])\n```\n\n\n##\n**give a star✨**\n",
+      "html": "<h3 id=\"question\">Question <a class=\"heading-anchor-permalink\" href=\"#question\">#</a></h3>\n<p>Given a string, your task is to replace each of its characters by the next one in the English alphabet; i.e. replace a with b, replace b with c, etc (z would be replaced by a).</p>\n<p>For inputString = <code>&quot;crazy&quot;</code>, the output should be solution(inputString) = <code>&quot;dsbaz&quot;</code>.</p>\n<h3 id=\"answer\">Answer <a class=\"heading-anchor-permalink\" href=\"#answer\">#</a></h3>\n<pre><code class=\"language-python\">def solution(inputString):\n    return &quot;&quot;.join([chr(ord(i)+1) if i != &quot;z&quot; else chr(ord(i)-25) for i in list(inputString)])\n</code></pre>\n<h2 id=\"\"> <a class=\"heading-anchor-permalink\" href=\"#\">#</a></h2>\n<p><strong>give a star✨</strong></p>\n",
+      "id": 3
+    },
+    {
+      "path": "chessBoardCellColor.md",
+      "url": "chessBoardCellColor.html",
+      "content": "\n\n### Question \n\nGiven two cells on the standard chess board, determine whether they have the same color or not.\n\nExample\n\nFor `cell1 = \"A1\"` and `cell2 = \"C3\"`, the output should be\nsolution(cell1, cell2) = true.\n\n\n### Solution \n\n```python\ndef solution(cell1, cell2):\n    c1 = (ord(cell1[0]) + int(cell1[1])) % 2\n    c2 = (ord(cell2[0]) + int(cell2[1])) % 2\n    return c1 == c2\n```\n\n## \n**give a star✨**\n",
+      "html": "<h3 id=\"question\">Question <a class=\"heading-anchor-permalink\" href=\"#question\">#</a></h3>\n<p>Given two cells on the standard chess board, determine whether they have the same color or not.</p>\n<p>Example</p>\n<p>For <code>cell1 = &quot;A1&quot;</code> and <code>cell2 = &quot;C3&quot;</code>, the output should be\nsolution(cell1, cell2) = true.</p>\n<h3 id=\"solution\">Solution <a class=\"heading-anchor-permalink\" href=\"#solution\">#</a></h3>\n<pre><code class=\"language-python\">def solution(cell1, cell2):\n    c1 = (ord(cell1[0]) + int(cell1[1])) % 2\n    c2 = (ord(cell2[0]) + int(cell2[1])) % 2\n    return c1 == c2\n</code></pre>\n<h2 id=\"\"> <a class=\"heading-anchor-permalink\" href=\"#\">#</a></h2>\n<p><strong>give a star✨</strong></p>\n",
+      "id": 4
+    },
+    {
+      "path": "evenDigitsOnly.md",
+      "url": "evenDigitsOnly.html",
+      "content": "\n\n### Questions \nCheck if all digits of the given integer are even.\n\nExample\n\nFor n = 248622, the output should be\nsolution(n) = true;\nFor n = 642386, the output should be\nsolution(n) = false.\n\n##\n\n### answer: \n```python \ndef solution(a):\n    return all([ int(i) %2 == 0 for i in str(a)])\n```\n\n\n## \n**give a star✨**\n",
+      "html": "<h3 id=\"questions\">Questions <a class=\"heading-anchor-permalink\" href=\"#questions\">#</a></h3>\n<p>Check if all digits of the given integer are even.</p>\n<p>Example</p>\n<p>For n = 248622, the output should be\nsolution(n) = true;\nFor n = 642386, the output should be\nsolution(n) = false.</p>\n<h2 id=\"\"> <a class=\"heading-anchor-permalink\" href=\"#\">#</a></h2>\n<h3 id=\"answer%3A\">answer: <a class=\"heading-anchor-permalink\" href=\"#answer%3A\">#</a></h3>\n<pre><code class=\"language-python\">def solution(a):\n    return all([ int(i) %2 == 0 for i in str(a)])\n</code></pre>\n<h2 id=\"-2\"> <a class=\"heading-anchor-permalink\" href=\"#-2\">#</a></h2>\n<p><strong>give a star✨</strong></p>\n",
+      "id": 5
+    },
+    {
+      "path": "variableName.md",
+      "url": "variableName.html",
+      "content": "\n\n### Question \nCorrect variable names consist only of English letters, digits and underscores and they can't start with a digit.\n\nCheck if the given string is a correct variable name.\n\nExample\n\nFor name = \"var_1__Int\", the output should be\n\nsolution(name) = true;\n\nFor name = \"qq-q\", the output should be\n\nsolution(name) = false;\n\nFor name = \"2w2\", the output should be\n\nsolution(name) = false.\n##\n### Answer \n```python \n\n\ndef solution(name):\n    return name.isidentifier()\n```\n\n\n##\n**give a star✨**\n",
+      "html": "<h3 id=\"question\">Question <a class=\"heading-anchor-permalink\" href=\"#question\">#</a></h3>\n<p>Correct variable names consist only of English letters, digits and underscores and they can’t start with a digit.</p>\n<p>Check if the given string is a correct variable name.</p>\n<p>Example</p>\n<p>For name = “var_1__Int”, the output should be</p>\n<p>solution(name) = true;</p>\n<p>For name = “qq-q”, the output should be</p>\n<p>solution(name) = false;</p>\n<p>For name = “2w2”, the output should be</p>\n<p>solution(name) = false.</p>\n<h2 id=\"\"> <a class=\"heading-anchor-permalink\" href=\"#\">#</a></h2>\n<h3 id=\"answer\">Answer <a class=\"heading-anchor-permalink\" href=\"#answer\">#</a></h3>\n<pre><code class=\"language-python\">\n\ndef solution(name):\n    return name.isidentifier()\n</code></pre>\n<h2 id=\"-2\"> <a class=\"heading-anchor-permalink\" href=\"#-2\">#</a></h2>\n<p><strong>give a star✨</strong></p>\n",
+      "id": 6
+    }
+  ]
+}
