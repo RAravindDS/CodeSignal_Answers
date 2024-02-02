@@ -12,7 +12,7 @@ jobs:
     - uses: wranders/markdown-to-pages-action@v0.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-    - run: cp -r . ./dist/
+    - run: cp -r * ./dist/
     - uses: actions/upload-pages-artifact@v2
       with:
         path: dist
