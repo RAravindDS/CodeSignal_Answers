@@ -6,12 +6,13 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: wranders/markdown-to-pages-action@v0.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-    - run: cp ./images ./dist/images/
+    - run: cp . ./dist/
     - uses: actions/upload-pages-artifact@v2
       with:
         path: dist
