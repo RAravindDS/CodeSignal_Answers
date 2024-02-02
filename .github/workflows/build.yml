@@ -1,0 +1,23 @@
+jobs:
+  build:
+    steps:
+    - uses: actions/checkout@v3
+    - uses: wranders/markdown-to-pages-action@v0.1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - run: cp ./images ./dist/images/
+    - uses: actions/upload-pages-artifact@v2
+      with:
+        path: dist
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - uses: actions/deploy-pages@v1
+      id: deployment
