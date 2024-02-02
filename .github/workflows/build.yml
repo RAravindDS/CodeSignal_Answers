@@ -1,3 +1,9 @@
+name: build the website
+
+on:
+  push
+
+
 jobs:
   build:
     steps:
